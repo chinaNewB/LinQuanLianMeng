@@ -1,5 +1,6 @@
 package com.example.linquanlianmeng.ui.fragment;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import com.example.linquanlianmeng.model.domain.Categories;
 import com.example.linquanlianmeng.presenter.IHomePresenter;
 import com.example.linquanlianmeng.ui.activity.IMainActivity;
 import com.example.linquanlianmeng.ui.activity.MainActivity;
+import com.example.linquanlianmeng.ui.activity.ScanQrCodeActivity;
 import com.example.linquanlianmeng.ui.adapter.HomePagerAdapter;
 import com.example.linquanlianmeng.utils.LogUtils;
 import com.example.linquanlianmeng.utils.PresenterManager;
@@ -31,6 +33,9 @@ public class HomeFragment extends BaseFragment implements IHomeCallBack {
     @BindView(R.id.home_search_input_box)
     public View mSearchInputBox;
 
+    @BindView(R.id.scan_icon)
+    public View scanBtn;
+
     private IHomePresenter mHomePresenter;
     private HomePagerAdapter mHomePagerAdapter;
 
@@ -46,6 +51,17 @@ public class HomeFragment extends BaseFragment implements IHomeCallBack {
         //给ViewPager设置适配器
         mHomePagerAdapter = new HomePagerAdapter(getChildFragmentManager());
         homePager.setAdapter(mHomePagerAdapter);
+    }
+
+    @Override
+    protected void initListener() {
+        scanBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //跳转到扫描界面
+                startActivity(new Intent(getContext(), ScanQrCodeActivity.class));
+            }
+        });
     }
 
     @Override

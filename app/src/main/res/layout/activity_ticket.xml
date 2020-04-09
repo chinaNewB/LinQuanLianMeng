@@ -36,7 +36,7 @@
             android:id="@+id/ticket_cover"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:background="@color/colorGray" />
+            android:src="@mipmap/no_img"/>
 
         <com.example.linquanlianmeng.ui.custom.LoadingView
             android:id="@+id/ticket_cover_loading"

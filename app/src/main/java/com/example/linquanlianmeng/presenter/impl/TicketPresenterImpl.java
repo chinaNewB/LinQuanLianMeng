@@ -74,6 +74,8 @@ public class TicketPresenterImpl implements ITicketPresenter {
     }
 
     private void onTicketLoadedSuccess() {
+        LogUtils.d(this,"onTicketLoadedSuccess ---- " + mCover);
+        LogUtils.d(this,"onTicketLoadedSuccess ---- " + mTicketResult);
         if (mViewCallBack != null) {
             mViewCallBack.onTicketLoaded(mCover, mTicketResult);
         } else {
@@ -91,6 +93,7 @@ public class TicketPresenterImpl implements ITicketPresenter {
 
     @Override
     public void registerViewCallBack(ITicketPagerCallback callback) {
+        this.mViewCallBack = callback;
         if (mCurrentState != LoadState.NONE) {
             //说明状态已经改变了
             //更新UI
@@ -102,7 +105,6 @@ public class TicketPresenterImpl implements ITicketPresenter {
                 onTicketLoading();
             }
         }
-        this.mViewCallBack = callback;
     }
 
     private void onTicketLoading() {
