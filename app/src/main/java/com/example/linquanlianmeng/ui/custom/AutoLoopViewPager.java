@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 
 import com.example.linquanlianmeng.R;
-import com.example.linquanlianmeng.utils.LogUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,7 +36,7 @@ public class AutoLoopViewPager extends ViewPager {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.AutoLoopStyle);
         //获取属性
         mDuration = typedArray.getInteger(R.styleable.AutoLoopStyle_duration, (int) DEFAULT_DURATION);
-        LogUtils.d(AutoLoopViewPager.this, "mDuration ---- " + mDuration);
+//        LogUtils.d(AutoLoopViewPager.this, "mDuration ---- " + mDuration);
         //释放资源
         typedArray.recycle();
     }

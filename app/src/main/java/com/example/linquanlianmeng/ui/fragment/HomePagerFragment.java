@@ -89,14 +89,14 @@ public class HomePagerFragment extends BaseFragment implements ICategoryPagerCal
         super.onResume();
         //可见的时候调用开始轮播
         looperPager.startLoop();
-        LogUtils.d(this, "onResume...");
+        //        LogUtils.d(this, "onResume...");
     }
 
     @Override
     public void onPause() {
         super.onPause();
         looperPager.stopLoop();
-        LogUtils.d(this, "onPause...");
+        //        LogUtils.d(this, "onPause...");
     }
 
     @Override
@@ -223,8 +223,8 @@ public class HomePagerFragment extends BaseFragment implements ICategoryPagerCal
         mMaterialId = arguments.getInt(Constans.KEY_HOME_PAGER_MATETIAL_ID);
         // TODO: 2020/3/4 加载数据
 
-        LogUtils.d(this, "title ----- " + title);
-        LogUtils.d(this, "materialId ----- " + mMaterialId);
+        // LogUtils.d(this, "title ----- " + title);
+        // LogUtils.d(this, "materialId ----- " + mMaterialId);
 
         if (mCategoryPagePresenter != null) {
             mCategoryPagePresenter.getContentByCategoryId(mMaterialId);
@@ -293,7 +293,7 @@ public class HomePagerFragment extends BaseFragment implements ICategoryPagerCal
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onLooperListLoaded(List<HomePagerContent.DataBean> contents) {
-        LogUtils.d(this, "looper size --- " + contents.size());
+//        LogUtils.d(this, "looper size --- " + contents.size());
         mLooperPagerAdapter.setData(contents);
 
         //中间点%数据的size不一定为0，所以显示的就不是第一个，
@@ -337,7 +337,7 @@ public class HomePagerFragment extends BaseFragment implements ICategoryPagerCal
     }
 
     private void handleItemClick(IBaseInfo item) {
-        TicketUtil.toTicketPage(getContext(),item);
+        TicketUtil.toTicketPage(getContext(), item);
     }
 
     @Override

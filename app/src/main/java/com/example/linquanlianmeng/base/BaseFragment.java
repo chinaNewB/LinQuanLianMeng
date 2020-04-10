@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.example.linquanlianmeng.R;
-import com.example.linquanlianmeng.utils.LogUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,7 +33,7 @@ public abstract class BaseFragment extends Fragment {
     @OnClick(R.id.network_error_tips)
     public void retry(){
         //点击了重新加载
-        LogUtils.d(this, "on retry.....");
+//        LogUtils.d(this, "on retry.....");
         onRetryClick();
     }
 

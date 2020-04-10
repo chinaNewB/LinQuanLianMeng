@@ -40,14 +40,14 @@ public class OnSellPagePresenterImpl implements IOnSellPagePresenter {
         //获取特惠内容
 
         String targetUrl = UrlUtils.getOnSellPageUrl(mCurrentPage);
-        LogUtils.d(OnSellPagePresenterImpl.this, "targetUrl " + targetUrl);
+        //        LogUtils.d(OnSellPagePresenterImpl.this, "targetUrl " + targetUrl);
         Call<OnSellContent> task = mApi.getOnSellPageContent(targetUrl);
         task.enqueue(new Callback<OnSellContent>() {
             @Override
             public void onResponse(Call<OnSellContent> call, Response<OnSellContent> response) {
                 mIsLoading = false;
                 int code = response.code();
-                LogUtils.d(OnSellPagePresenterImpl.this, "result " + code);
+                // LogUtils.d(OnSellPagePresenterImpl.this, "result " + code);
                 if (code == HttpURLConnection.HTTP_OK) {
                     OnSellContent result = response.body();
                     onSuccess(result);
@@ -61,7 +61,7 @@ public class OnSellPagePresenterImpl implements IOnSellPagePresenter {
             @Override
             public void onFailure(Call<OnSellContent> call, Throwable t) {
                 onError();
-                LogUtils.d(OnSellPagePresenterImpl.this, " onFailure " + t.toString());
+                // LogUtils.d(OnSellPagePresenterImpl.this, " onFailure " + t.toString());
 
             }
         });

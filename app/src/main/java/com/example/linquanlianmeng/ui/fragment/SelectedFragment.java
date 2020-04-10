@@ -14,7 +14,6 @@ import com.example.linquanlianmeng.model.domain.SelectedPageCategory;
 import com.example.linquanlianmeng.presenter.ISelectedPagePresenter;
 import com.example.linquanlianmeng.ui.adapter.SelectedPageContentAdapter;
 import com.example.linquanlianmeng.ui.adapter.SelectedPageLeftAdapter;
-import com.example.linquanlianmeng.utils.LogUtils;
 import com.example.linquanlianmeng.utils.PresenterManager;
 import com.example.linquanlianmeng.utils.SizeUtils;
 import com.example.linquanlianmeng.utils.TicketUtil;
@@ -112,7 +111,7 @@ public class SelectedFragment extends BaseFragment
         setUpState(State.SUCCESS);
         mLeftAdapter.setData(categories);
         //分类内容
-        LogUtils.d(this, "onCategoriesLoaded ------- " + categories);
+//        LogUtils.d(this, "onCategoriesLoaded ------- " + categories);
         // 更新UI
         //根据当前选中的分类，获收分类详情内谷
         List<SelectedPageCategory.DataBean> data = categories.getData();
@@ -122,7 +121,7 @@ public class SelectedFragment extends BaseFragment
 
     @Override
     public void onContentLoaded(SelectedContent content) {
-        LogUtils.d(this, "onContentLoaded ------- " + content);
+//        LogUtils.d(this, "onContentLoaded ------- " + content);
         mRightAdapter.setData(content);
         rightContentList.scrollToPosition(0);
     }
@@ -153,7 +152,7 @@ public class SelectedFragment extends BaseFragment
     @Override
     public void onLeftItemClick(SelectedPageCategory.DataBean item) {
         //左边的分类点击了
-        LogUtils.d(this, "onLeftItemClick ---- " + item.getFavorites_title());
+//        LogUtils.d(this, "onLeftItemClick ---- " + item.getFavorites_title());
         mSelectedPagePresenter.getContentByCategory(item);
     }
 

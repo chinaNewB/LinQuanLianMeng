@@ -72,7 +72,7 @@ public class CategoryPagePresenterImpl implements ICategoryPagerPresenter {
 
     private Call<HomePagerContent> createTask(int categoryId, Integer targetPage) {
         String homePagerUrl = UrlUtils.createHomePagerUrl(categoryId, targetPage);
-        LogUtils.d(this, "homePagerUrl ------- " + homePagerUrl);
+//        LogUtils.d(this, "homePagerUrl ------- " + homePagerUrl);
         Retrofit retrofit = RetrofitManagere.getInstance().getRetrofit();
         Api api = retrofit.create(Api.class);
         return api.getHomePagerContent(homePagerUrl);
@@ -95,6 +95,7 @@ public class CategoryPagePresenterImpl implements ICategoryPagerPresenter {
                 if (pageContent == null || pageContent.getData().size() == 0) {
                     callback.onEmpty();
                 } else {
+                    //倒数5个
                     List<HomePagerContent.DataBean> loopData = data.subList(data.size() - 5, data.size());
                     callback.onLooperListLoaded(loopData);
                     callback.onContentLoaded(data);
@@ -121,7 +122,7 @@ public class CategoryPagePresenterImpl implements ICategoryPagerPresenter {
             public void onResponse(Call<HomePagerContent> call, Response<HomePagerContent> response) {
                 //结果
                 int code = response.code();
-                LogUtils.d(CategoryPagePresenterImpl.this, "result code --- " + code);
+//                LogUtils.d(CategoryPagePresenterImpl.this, "result code --- " + code);
                 if (code == HttpURLConnection.HTTP_OK) {
                     HomePagerContent result = response.body();
                     LogUtils.d(CategoryPagePresenterImpl.this,"result ---- " + result.toString());
