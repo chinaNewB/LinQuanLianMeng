@@ -27,14 +27,14 @@ public class HomePagerContentAdapter extends RecyclerView.Adapter<HomePagerConte
 
     List<ILinearItemInfo> mData = new ArrayList<>();
 
-    private int testCount = 1;
+//    private int testCount = 1;
     private OnListItemClickListener mItemClickListener = null;
 
     @NonNull
     @Override
     public InnerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //        LogUtils.d(this,"onCreateViewHolder..." + testCount);
-        testCount++;
+//        testCount++;
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_linear_goods_content, parent, false);
         return new InnerHolder(itemView);
     }

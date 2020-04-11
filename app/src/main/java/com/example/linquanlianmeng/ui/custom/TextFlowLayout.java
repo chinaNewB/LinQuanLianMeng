@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.linquanlianmeng.R;
-import com.example.linquanlianmeng.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -63,8 +62,8 @@ public class TextFlowLayout extends ViewGroup {
         mItemHorizontalSpace = typedArray.getDimension(R.styleable.FlowTextStyle_horizontalSpace, DEFAULT_SPACE);
         mItemVerticalSpace = typedArray.getDimension(R.styleable.FlowTextStyle_verticalSpace, DEFAULT_SPACE);
         typedArray.recycle();
-        LogUtils.d(this, "mItemHorizontalSpace -- " + mItemHorizontalSpace);
-        LogUtils.d(this, "mItemVerticalSpace ===== " + mItemVerticalSpace);
+//        LogUtils.d(this, "mItemHorizontalSpace -- " + mItemHorizontalSpace);
+//        LogUtils.d(this, "mItemVerticalSpace ===== " + mItemVerticalSpace);
     }
 
 
@@ -109,10 +108,10 @@ public class TextFlowLayout extends ViewGroup {
         lines.clear();
 
         mSelfWidth = MeasureSpec.getSize(widthMeasureSpec) - getPaddingLeft() - getPaddingRight();
-        LogUtils.d(this, "mSelfWidth ---------" + mSelfWidth);
+//        LogUtils.d(this, "mSelfWidth ---------" + mSelfWidth);
 
         //测量
-        LogUtils.d(this, "onMeasure ---- > " + getChildCount());
+//        LogUtils.d(this, "onMeasure ---- > " + getChildCount());
         //测量孩子
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -122,10 +121,10 @@ public class TextFlowLayout extends ViewGroup {
                 continue;
             }
             //测量前
-            LogUtils.d(this, "before height --- " + itemView.getMeasuredHeight());
+//            LogUtils.d(this, "before height --- " + itemView.getMeasuredHeight());
             measureChild(itemView, widthMeasureSpec, heightMeasureSpec);
             //测量后
-            LogUtils.d(this, "after height --- " + itemView.getMeasuredHeight());
+//            LogUtils.d(this, "after height --- " + itemView.getMeasuredHeight());
             if (line == null) {
                 //说明当前行为空，可以添加
                 line = createNewLine(itemView);
@@ -174,7 +173,7 @@ public class TextFlowLayout extends ViewGroup {
         }
         //水平间距的宽度
         totalWidth += mItemHorizontalSpace * (line.size() + 1);
-        LogUtils.d(this, "totalWidth ------ " + totalWidth);
+//        LogUtils.d(this, "totalWidth ------ " + totalWidth);
 
         //条件:如果小于/等于当前控件的宽度，则可以添加，否则不能添加
         return totalWidth <= mSelfWidth;
@@ -184,7 +183,7 @@ public class TextFlowLayout extends ViewGroup {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         //摆放孩子
-        LogUtils.d(this, "onLayout ---- > " + getChildCount());
+//        LogUtils.d(this, "onLayout ---- > " + getChildCount());
 
         int topOffset = (int) mItemVerticalSpace;
         for (List<View> views : lines) {

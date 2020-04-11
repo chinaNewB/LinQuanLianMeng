@@ -23,7 +23,6 @@ import com.example.linquanlianmeng.presenter.ISearchPresenter;
 import com.example.linquanlianmeng.ui.adapter.HomePagerContentAdapter;
 import com.example.linquanlianmeng.ui.custom.TextFlowLayout;
 import com.example.linquanlianmeng.utils.KeyboardUtil;
-import com.example.linquanlianmeng.utils.LogUtils;
 import com.example.linquanlianmeng.utils.PresenterManager;
 import com.example.linquanlianmeng.utils.SizeUtils;
 import com.example.linquanlianmeng.utils.TicketUtil;
@@ -261,7 +260,7 @@ public class SearchFragment extends BaseFragment implements ISerchPageCallBack, 
 
     @Override
     public void onHistoriesLoaded(Histories histories) {
-        LogUtils.d(SearchFragment.this, "histories ------ " + histories);
+//        LogUtils.d(SearchFragment.this, "histories ------ " + histories);
         if (histories == null || histories.getHistories().size() == 0) {
             mHistoriesContainer.setVisibility(View.GONE);
         } else {
@@ -325,7 +324,7 @@ public class SearchFragment extends BaseFragment implements ISerchPageCallBack, 
 
     @Override
     public void onRecommendWordsLoaded(List<SearchRecommend.DataBean> recommendWords) {
-        LogUtils.d(SearchFragment.this, "recommendWords ------ " + recommendWords);
+//        LogUtils.d(SearchFragment.this, "recommendWords ------ " + recommendWords);
         List<String> recommendKeyWords = new ArrayList<>();
         for (SearchRecommend.DataBean item : recommendWords) {
             recommendKeyWords.add(item.getKeyword());
