@@ -11,3 +11,8 @@
 /build
 /captures
 .externalNativeBuild
+*.jks
+*.log
+build/
+*.apk
+*.ap_

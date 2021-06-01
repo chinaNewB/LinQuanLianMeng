@@ -155,13 +155,16 @@ public class TicketActivity extends BaseActivity implements ITicketPagerCallback
             LogUtils.d(this, "coverPath ----- " + coverPath);
             Glide.with(this).load(coverPath).into(mCover);
         }
-        if(TextUtils. isEmpty(cover)) {
-            mCover.setImageResource (R.mipmap.no_img);
+        if (TextUtils.isEmpty(cover)) {
+            mCover.setImageResource(R.mipmap.no_img);
         }
-            //设置code
-        if (result != null && result.getData().getTbk_tpwd_create_response() != null) {
+        //设置code
+        if (result != null && result.getData() != null && result.getData().getTbk_tpwd_create_response() != null) {
             mTicketCode.setText(result.getData().getTbk_tpwd_create_response().getData().getModel());
+        } else {
+            mTicketCode.setText("暂无优惠券~");
         }
+
         if (loadingView != null) {
             loadingView.setVisibility(View.GONE);
         }

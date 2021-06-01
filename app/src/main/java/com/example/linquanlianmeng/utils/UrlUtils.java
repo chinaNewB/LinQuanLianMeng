@@ -18,6 +18,9 @@ public class UrlUtils {
     }
 
     public static String getTicketUrl(String url) {
+        if (url == null) {
+            return "";
+        }
         if (url.startsWith("http") || url.startsWith("https")) {
             return url;
         } else {
